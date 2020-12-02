@@ -1,14 +1,25 @@
 plugins {
     id 'java'
+    id 'idea' // optional (to generate IntelliJ IDEA project files)
 }
-
-group 'org.example'
-version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation(platform('org.junit:junit-bom:5.7.0'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.41.0'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.1'
+    testImplementation('junit:junit:4.13')
+
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }

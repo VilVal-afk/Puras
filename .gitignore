@@ -1,0 +1,12 @@
+.gradle
+/build/
+
+gradle-app.setting
+
+!gradle-wrapper.jar
+
+.gradletasknamecach
+
+.idea
+out
+chromedriver.exe
